@@ -23,7 +23,7 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ vars.USERNAME }}
+          username: moltenbot
           password: ${{ secrets.TOKEN }}
 
       - name: Extract Docker metadata (tags & labels)
