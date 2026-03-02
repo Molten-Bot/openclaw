@@ -2,6 +2,10 @@
 
 Docker image for [openclaw](https://www.npmjs.com/package/openclaw), automatically built and published to [moltenbot/openclaw](https://hub.docker.com/r/moltenbot/openclaw) on Docker Hub.
 
+Images are published as multi-arch manifests for:
+- `linux/amd64`
+- `linux/arm64`
+
 [![Build & Push to Docker Hub](https://github.com/Molten-Bot/openclaw/actions/workflows/docker-release.yml/badge.svg)](https://github.com/Molten-Bot/openclaw/actions/workflows/docker-release.yml)
 
 ## Usage
@@ -54,7 +58,7 @@ Please include in your PR description:
 
 Once a PR is merged into `main`, the Docker image is automatically built and pushed as `moltenbot/openclaw:latest` via GitHub Actions.
 
-To publish a versioned release, a maintainer will push a tag in the format `vYYYY.M.P` (e.g. `v2026.3.1`), which will also push a versioned tag to Docker Hub.
+To publish a versioned release, a maintainer will push a tag in the format `vYYYY.M.P` (e.g. `v2026.3.1`), which will push both `vYYYY.M.P` and `YYYY.M.P` tags to Docker Hub.
 
 ## License
 

@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    tags:
+      - 'v*'
+  workflow_dispatch:
 
 jobs:
   build-and-push:
@@ -40,14 +43,17 @@ jobs:
         with:
           images: moltenbot/openclaw
           tags: |
-            type=raw,value=latest
-            type=raw,value=${{ steps.openclaw_version.outputs.version }}
+            type=raw,value=latest,enable={{is_default_branch}}
+            type=raw,value=${{ steps.openclaw_version.outputs.version }},enable={{is_default_branch}}
+            type=ref,event=tag
+            type=match,pattern=v(.*),group=1,event=tag
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
           context: .
           push: true
+          platforms: linux/amd64,linux/arm64
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
