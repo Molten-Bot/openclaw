@@ -105,8 +105,6 @@ jobs:
           file: ${{ matrix.dockerfile }}
           push: true
           platforms: linux/amd64,linux/arm64
-          build-args: |
-            OPENCLAW_VERSION=${{ steps.openclaw_version.outputs.version }}
           tags: ${{ steps.image_tags.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
