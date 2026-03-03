@@ -1,6 +1,11 @@
 FROM node:lts-alpine AS builder
 
-RUN apk add --no-cache git
+RUN apk add --no-cache \
+    git \
+    make \
+    g++ \
+    cmake \
+    linux-headers
 
 WORKDIR /build
 
