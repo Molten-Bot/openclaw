@@ -9,7 +9,7 @@ RUN apk add --no-cache \
 
 WORKDIR /build
 
-ENV OPENCLAW_VERSION=2026.3.1
+COPY OPENCLAW_VERSION /tmp/OPENCLAW_VERSION
 
 # Install openclaw globally
-RUN npm install -g openclaw@${OPENCLAW_VERSION}
+RUN npm install -g "openclaw@$(cat /tmp/OPENCLAW_VERSION)"

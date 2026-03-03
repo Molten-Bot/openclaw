@@ -35,12 +35,12 @@ jobs:
           username: moltenbot
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Read OpenClaw version from Dockerfile.debian
+      - name: Read OpenClaw version from OPENCLAW_VERSION
         id: openclaw_version
         run: |
-          VERSION=$(grep -E '^ENV OPENCLAW_VERSION=' Dockerfile.debian | head -n1 | cut -d= -f2)
+          VERSION=$(tr -d '[:space:]' < OPENCLAW_VERSION)
           if [ -z "$VERSION" ]; then
-            echo "OPENCLAW_VERSION not found in Dockerfile.debian"
+            echo "OPENCLAW_VERSION not found in OPENCLAW_VERSION"
             exit 1
           fi
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
