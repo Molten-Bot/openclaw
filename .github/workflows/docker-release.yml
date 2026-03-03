@@ -13,12 +13,13 @@ jobs:
     if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v')
     name: Build & Push Docker Image (${{ matrix.variant }})
     runs-on: ubuntu-latest
+    timeout-minutes: 120
     environment: default
     strategy:
       matrix:
         include:
           - variant: debian
-            dockerfile: Dockerfile.debian
+            dockerfile: Dockerfile
           - variant: alpine
             dockerfile: Dockerfile.alpine
 

@@ -36,7 +36,7 @@ docker pull moltenbot/openclaw:alpine
 Local builds automatically use the version in `OPENCLAW_VERSION`:
 
 ```bash
-docker build -f Dockerfile.debian .
+docker build -f Dockerfile .
 docker build -f Dockerfile.alpine .
 ```
 
@@ -80,7 +80,7 @@ git checkout -b your-feature-or-fix
 
 The main files to edit are:
 - `OPENCLAW_VERSION` (single source of truth for the openclaw npm version)
-- `Dockerfile.debian`
+- `Dockerfile`
 - `Dockerfile.alpine`
 
 Common changes include:
