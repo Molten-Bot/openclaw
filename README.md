@@ -2,9 +2,12 @@
 
 Docker image for [openclaw](https://www.npmjs.com/package/openclaw), automatically built and published to [moltenbot/openclaw](https://hub.docker.com/r/moltenbot/openclaw) on Docker Hub.
 
-Images are published as multi-arch manifests for:
+Debian-based tags are published as multi-arch manifests for:
 - `linux/amd64`
 - `linux/arm64`
+
+Alpine tags are currently published for:
+- `linux/amd64`
 
 [![Build & Push to Docker Hub](https://github.com/Molten-Bot/openclaw/actions/workflows/docker-release.yml/badge.svg)](https://github.com/Molten-Bot/openclaw/actions/workflows/docker-release.yml)
 
@@ -20,10 +23,10 @@ docker pull moltenbot/openclaw:latest
 | --- | --- | --- | --- |
 | `latest` | Debian slim (Node LTS) | Primary | Recommended default tag |
 | `lts` | Debian slim (Node LTS) | Primary | Alias of `latest` |
-| `alpine` | Alpine (Node LTS) | Best effort | Smaller image, may have musl compatibility differences |
+| `alpine` | Alpine (Node LTS) | Best effort | `linux/amd64` only |
 | `${OPENCLAW_VERSION}` | Debian slim (Node LTS) | Primary | Versioned Debian image |
 | `${OPENCLAW_VERSION}-lts` | Debian slim (Node LTS) | Primary | Versioned LTS alias |
-| `${OPENCLAW_VERSION}-alpine` | Alpine (Node LTS) | Best effort | Versioned Alpine image |
+| `${OPENCLAW_VERSION}-alpine` | Alpine (Node LTS) | Best effort | `linux/amd64` only |
 
 Pull examples:
 
@@ -46,6 +49,7 @@ docker build -f Dockerfile.alpine .
 - Native modules and some tooling may behave differently on Alpine.
 - Debian LTS variants are the primary support target.
 - Alpine is best-effort and may briefly lag if upstream breakage occurs.
+- Alpine arm64 is intentionally not published from CI at this time due build-time instability with native npm dependencies.
 
 ### Migration Note
 
