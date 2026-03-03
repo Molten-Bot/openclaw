@@ -1,4 +1,4 @@
-FROM node:25-trixie-slim AS builder
+FROM node:lts-trixie-slim AS builder
 
 RUN apt-get update && apt-get install -y \
     git \
