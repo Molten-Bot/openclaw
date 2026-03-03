@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /build
 
-COPY OPENCLAW_VERSION /tmp/OPENCLAW_VERSION
+ENV OPENCLAW_VERSION=2026.3.2
 
 # Install openclaw globally
 RUN npm install -g "openclaw@$(cat /tmp/OPENCLAW_VERSION)"
