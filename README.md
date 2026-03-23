@@ -50,6 +50,7 @@ docker build -f Dockerfile.alpine .
 - Debian LTS variants are the primary support target.
 - Alpine is best-effort and may briefly lag if upstream breakage occurs.
 - Alpine arm64 is intentionally not published from CI at this time due build-time instability with native npm dependencies.
+- If an upstream npm release omits `dist/control-ui`, Docker build falls back to building Control UI assets from the matching source tag and copies them into the installed package.
 
 ### Migration Note
 
