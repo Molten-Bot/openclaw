@@ -34,10 +34,6 @@ jobs:
 
       - name: Validate Docker Hub configuration
         run: |
-          if [ -z "${{ vars.DOCKERHUB_USERNAME }}" ]; then
-            echo "vars.DOCKERHUB_USERNAME is required in environment 'default'."
-            exit 1
-          fi
           if [ -z "${{ secrets.DOCKERHUB_TOKEN }}" ]; then
             echo "secrets.DOCKERHUB_TOKEN is required."
             exit 1
@@ -46,7 +42,7 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ vars.DOCKERHUB_USERNAME }}
+          username: moltenai
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Read OpenClaw version from OPENCLAW_VERSION
@@ -65,7 +61,7 @@ jobs:
           set -eu
 
           VERSION="${{ steps.openclaw_version.outputs.version }}"
-          IMAGE="${{ vars.DOCKERHUB_USERNAME }}/openclaw"
+          IMAGE="moltenai/openclaw"
 
           if [[ "${GITHUB_REF}" == refs/tags/v* ]]; then
             RAW_TAG="${GITHUB_REF#refs/tags/}"
@@ -110,7 +106,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ vars.DOCKERHUB_USERNAME }}/openclaw
+          images: moltenai/openclaw
 
       - name: Build and push Docker image (${{ matrix.variant }})
         uses: docker/build-push-action@v6
