@@ -2,6 +2,8 @@
 
 Docker image for [openclaw](https://www.npmjs.com/package/openclaw), automatically built and published to [moltenbot/openclaw](https://hub.docker.com/r/moltenbot/openclaw) on Docker Hub.
 
+![Theme: Pink](https://img.shields.io/badge/theme-pink-ff69b4)
+
 Debian-based tags are published as multi-arch manifests for:
 - `linux/amd64`
 - `linux/arm64`
