@@ -17,7 +17,6 @@ on:
     paths:
       - 'Dockerfile'
       - 'Dockerfile.alpine'
-      - 'OPENCLAW_VERSION'
       - '.github/workflows/docker-release.yml'
   workflow_dispatch:
 
