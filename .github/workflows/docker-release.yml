@@ -6,10 +6,24 @@ on:
       - main
     tags:
       - 'v*'
+    paths:
+      - 'Dockerfile'
+      - 'Dockerfile.alpine'
+      - 'OPENCLAW_VERSION'
+      - '.github/workflows/docker-release.yml'
   pull_request:
     branches:
       - main
+    paths:
+      - 'Dockerfile'
+      - 'Dockerfile.alpine'
+      - 'OPENCLAW_VERSION'
+      - '.github/workflows/docker-release.yml'
   workflow_dispatch:
+
+concurrency:
+  group: docker-release-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   validate:
