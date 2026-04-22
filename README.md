@@ -89,6 +89,7 @@ The main files to edit are:
 - `OPENCLAW_VERSION` (single source of truth for the openclaw npm version)
 - `Dockerfile`
 - `Dockerfile.alpine`
+- `scripts/install-openclaw.sh` (shared openclaw install and Control UI backfill logic)
 
 Common changes include:
 - Bumping the `OPENCLAW_VERSION` to a newer npm release

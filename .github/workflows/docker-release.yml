@@ -10,6 +10,7 @@ on:
       - 'Dockerfile'
       - 'Dockerfile.alpine'
       - 'OPENCLAW_VERSION'
+      - 'scripts/install-openclaw.sh'
       - '.github/workflows/docker-release.yml'
   pull_request:
     branches:
@@ -17,6 +18,7 @@ on:
     paths:
       - 'Dockerfile'
       - 'Dockerfile.alpine'
+      - 'scripts/install-openclaw.sh'
       - '.github/workflows/docker-release.yml'
   workflow_dispatch:
 
