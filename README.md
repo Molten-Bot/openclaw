@@ -11,7 +11,7 @@ Alpine tags are currently published for:
 
 [![Build & Push to Docker Hub](https://github.com/Molten-Bot/openclaw/actions/workflows/docker-release.yml/badge.svg)](https://github.com/Molten-Bot/openclaw/actions/workflows/docker-release.yml)
 
-Pull requests that change Dockerfiles or this workflow run the Docker build matrix as validation; `OPENCLAW_VERSION`-only changes build on `main` push. Only `main` pushes and `v*` tags publish images to Docker Hub.
+Pull requests that change Dockerfiles, `OPENCLAW_VERSION`, or this workflow run the Docker build matrix as validation. Only `main` pushes and `v*` tags publish images to Docker Hub.
 
 ## Usage
 
